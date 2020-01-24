@@ -10,11 +10,16 @@ use Webbaard\Saloon\Infra\Tab\Projection\Tab\TabFinder;
 
 final class TabCollectionController
 {
+    private TabFinder $tabFinder;
+
+    public function __construct(TabFinder $tabFinder)
+    {
+        $this->tabFinder = $tabFinder;
+    }
+
+
     public function collectionAction(): Response
     {
-        return new JsonResponse([
-            ['customer' => 'john Wayne', 'id', '0'],
-            ['customer' => 'billy the kid', '1']
-        ]);
+        return new JsonResponse($this->tabFinder->findAll());
     }
 }

@@ -20,6 +20,14 @@ final class TabProjection implements ReadModelProjection
                 return [];
             })
             ->when([
+                TabIsOpened::class => function($state, TabIsOpened $event) {
+                    /** @var TabReadModel $readModel */
+                    $readModel = $this->readModel();
+                    $readModel->stack('insert', [
+                        'id' => $event->id()->toString(),
+                        'customerName' => $event->customerName()->toString()
+                    ]);
+                }
             ]);
 
         return $projector;
