@@ -1,0 +1,11 @@
+page::home:
+  path: /
+  defaults: { _controller: Webbaard\Saloon\Application\Controller\HomepageController::indexAction }
+
+data::tabs:
+  path: /tabs/list.json
+  defaults: { _controller: Webbaard\Saloon\Application\Controller\TabCollectionController::collectionAction }
+
+data::menu:
+  path: /menu/list.json
+  defaults: { _controller: Webbaard\Saloon\Application\Controller\MenuCollectionController::collectionAction }

@@ -1,0 +1,36 @@
+{
+    "name": "Saloon",
+    "version": "1.0.0",
+    "main": "webpack.config.js",
+    "repository": "https://github.com/webbaard/Saloon.git",
+    "author": "Tim Huijzers <Webbaard@gmail.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "@babel/core": "^7.8.3",
+        "@babel/preset-react": "^7.8.3",
+        "@symfony/webpack-encore": "^0.28.2",
+        "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+        "babel-polyfill": "^6.26.0",
+        "babel-preset-env": "1.7.0",
+        "eslint": "^6.8.0",
+        "eslint-plugin-react": "^7.18.0",
+        "eslint-utils": "^2.0.0",
+        "node-sass": "^4.13.1",
+        "prop-types": "^15.7.2",
+        "react-dom": "^16.12.0",
+        "sass-loader": "^8.0.2"
+    },
+    "dependencies": {
+        "axios": "^0.19.1",
+        "react": "^16.12.0",
+        "react-bootstrap": "^1.0.0-beta.16",
+        "react-router-dom": "^5.1.2",
+        "uuid": "^3.4.0"
+    },
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production"
+    }
+}

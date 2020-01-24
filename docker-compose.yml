@@ -1,0 +1,50 @@
+version: "3.6"
+services:
+    mysql:
+        image: mysql:8.0
+        restart: on-failure
+        environment:
+            MYSQL_ROOT_PASSWORD: saloon
+            MYSQL_DATABASE: saloon
+        healthcheck:
+            test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+            timeout: 20s
+            retries: 10
+
+    php:
+        build:
+            context: .
+            dockerfile: .docker/php/Dockerfile
+        restart: on-failure
+        ports:
+            - 10080:8080
+        depends_on:
+            - mysql
+        volumes:
+            - ./:/usr/src/app
+        working_dir: /usr/src/app
+
+    encore:
+        image: node:10-alpine
+        volumes:
+            - .:/app
+        ports:
+            - "${DEV_SERVER_PORT:-8080}:8080"
+        working_dir: /app
+        command: ["yarn", "dev-server", "--host=0.0.0.0"]
+
+    nginx:
+        image: nginx:1.15.3
+        restart: on-failure
+        volumes:
+            - .:/usr/src/app
+            - ./.docker/nginx:/etc/nginx/conf.d
+        ports:
+            - 18080:80
+        depends_on:
+            - php
+    adminer:
+        image: adminer
+        restart: on-failure
+        ports:
+            - 10088:8080
