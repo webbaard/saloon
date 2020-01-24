@@ -15,3 +15,7 @@ command::open-tab:
   defaults:
     _controller: Webbaard\Saloon\Application\Controller\ApiCommandController::postAction
     command_name: 'Webbaard\Saloon\Domain\Tab\Command\OpenTab'
+
+data::tab:
+  path: /tab/{id}.json
+  defaults: { _controller: Webbaard\Saloon\Application\Controller\TabController::detailsAction }

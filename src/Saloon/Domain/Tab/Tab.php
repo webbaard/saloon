@@ -46,4 +46,13 @@ final class Tab extends AggregateRoot
                 $this->whenTabIsOpened($event);
         }
     }
+
+    public function payload(): array
+    {
+        return [
+          'id' => $this->tabId->toString(),
+          'customerName' => $this->customerName->toString(),
+          'openedOn' => $this->openedOn->toString()
+        ];
+    }
 }

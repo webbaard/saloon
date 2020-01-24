@@ -15,7 +15,7 @@ final class TabRepository extends AggregateRepository implements TabCollection
 {
     public function getTab(TabId $tabId): Tab
     {
-        $this->getAggregateRoot($tabId->toString());
+        return $this->getAggregateRoot($tabId->toString());
     }
 
     public function saveTab(Tab $tab): void
