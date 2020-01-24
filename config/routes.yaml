@@ -9,3 +9,9 @@ data::tabs:
 data::menu:
   path: /menu/list.json
   defaults: { _controller: Webbaard\Saloon\Application\Controller\MenuCollectionController::collectionAction }
+
+command::open-tab:
+  path: /api/commands/open-tab
+  defaults:
+    _controller: Webbaard\Saloon\Application\Controller\ApiCommandController::postAction
+    command_name: 'Webbaard\Saloon\Domain\Tab\Command\OpenTab'
