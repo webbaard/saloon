@@ -21,7 +21,7 @@
         "sass-loader": "^8.0.2"
     },
     "dependencies": {
-        "axios": "^0.19.1",
+        "axios": "^0.21.1",
         "react": "^16.12.0",
         "react-bootstrap": "^1.0.0-beta.16",
         "react-router-dom": "^5.1.2",
